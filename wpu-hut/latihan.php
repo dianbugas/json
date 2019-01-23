@@ -1,3 +1,10 @@
+<?php 
+$data = file_get_contents('data/pizza.json');
+$menu = json_decode($data, true);
+
+var_dump($menu);
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,6 +38,7 @@
                 </div>
             </div>
             <div class="row">
+                <?php foreach ($menu as $row) : ?>
                 <div class="col-md-4">
                 <div class="card">
                     <img src="img/pizza/supreme.jpg" class="card-img-top">
@@ -42,6 +50,7 @@
                     </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
     <!-- Optional JavaScript -->
