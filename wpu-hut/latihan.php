@@ -2,7 +2,7 @@
 $data = file_get_contents('data/pizza.json');
 $menu = json_decode($data, true);
 
-var_dump($menu);
+$menu = $menu["menu"];
 ?>
 
 <!doctype html>
@@ -40,14 +40,14 @@ var_dump($menu);
             <div class="row">
                 <?php foreach ($menu as $row) : ?>
                 <div class="col-md-4">
-                <div class="card">
-                    <img src="img/pizza/supreme.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Supreme</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <h5>Rp. 60.000</h5>
-                        <a href="#" class="btn btn-primary">Pesan sekarang</a>
-                    </div>
+                    <div class="card-mb-3">
+                        <img src="img/pizza/<?= $row["gambar"]; ?>" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $row["nama"]; ?></h5>
+                            <p class="card-text"><?= $row["deskripsi"]; ?></p>
+                            <h5><?= $row["harga"]; ?></h5>
+                            <a href="#" class="btn btn-primary">Pesan sekarang</a>
+                        </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
